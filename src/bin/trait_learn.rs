@@ -18,7 +18,7 @@ impl Clone for A {
 }
 impl Drop for A {
     fn drop(&mut self) {
-        println!("dropping {:?}", self);
+        todo!()
     }
 }
 impl Display for A {
@@ -43,7 +43,7 @@ fn main() {
     let mut a = A("20".to_string());
     let p = &a as *const A;
     unsafe{
-        let xx = (&*p).clone();
+        let xx: A = (&*p).clone();
         println!("*ptr = {}", xx);
     }
     // let b = *(&a);
