@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+#![allow(unused)]
 use std::ptr::NonNull;
 use std::{
     alloc::{self, dealloc, Layout},
@@ -20,12 +22,14 @@ fn main() {
     // 新建NonNull，悬垂指针，单保证对齐。用于初始化
     let _ = NonNull::<A<String>>::dangling();
     unsafe {
-        for _ in 0..99999999999usize {
-            let (ptr, layout) = exec();
-            #[cfg(feature = "printer")]
-            println!("-----------------");
-            // dealloc(ptr.as_ptr() as *mut _, layout);
-        }
+        let x = ptr::read(NonNull::<i32>::dangling().as_ptr());
+        println!("{}", x);
+        // for _ in 0..99999999999usize {
+        //     let (ptr, layout) = exec();
+        //     #[cfg(feature = "printer")]
+        //     println!("-----------------");
+        //     // dealloc(ptr.as_ptr() as *mut _, layout);
+        // }
     }
 }
 

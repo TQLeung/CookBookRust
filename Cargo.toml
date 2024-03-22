@@ -9,7 +9,7 @@ edition = "2021"
 serde_json = "1"
 serde_urlencoded = "0.7"
 serde = { version = "1", features = ["derive"] }
-
+piston_window = "*"
 
 [features]
 printer = []

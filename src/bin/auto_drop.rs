@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+#![allow(unused)]
 use std::marker::PhantomData;
 
 struct B(i32);
